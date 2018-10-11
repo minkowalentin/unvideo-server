@@ -5,14 +5,14 @@ import messageService from '../../application/messageService';
  */
 export default {
     Query: {
-      getAllMessages: (parent, args, context) => messageService.getAll(),
-      getMessageById: (parent, {id}, context) => messageService.getById(id),
-      getMessagesByUserId: (parent, {id}, context) => messageService.getUserMessages(id),
+      getAllMessages: (parent, args, {models}) => messageService.getAll(models),
+      getMessageById: (parent, {id}, {models}) => messageService.getById(id, models),
+      getMessagesByUserId: (parent, {id}, {models}) => messageService.getUserMessages(id, models),
     },
 
     Mutation: {
-      createMessage: (parent, {content}, {user}) => messageService.createMessage(content, user),
-      deleteMessage: (parent, {id}, context) => messageService.deleteMessage(id)
+      createMessage: (parent, {content}, {models,user}) => messageService.createMessage(content, models, user),
+      deleteMessage: (parent, {id}, {models}) => messageService.deleteMessage(id, models)
     }
 };
 

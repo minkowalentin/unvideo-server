@@ -1,59 +1,27 @@
-import fakeDb from '../fakeDb';
 import uuidv4 from 'uuid/v4';
 
-const messages = fakeDb.messages;
-
-function getAll() {
-  return Object.values(fakeDb.messages);
+async function getAll(models) {
+  return await models.Message.findAll();
 }
 
-function getById(id) {
-  let returnMessage = {};
-  messages.forEach(message => {
-    if (id === message.id) {
-      returnMessage = message;
-    }
-  });
-
-  return returnMessage;
+async function getById(id, models) {
+  return await models.Message.findById(id);
 }
 
-function getUserMessages(id) {
-  const messagesWithUserId = [];
-  messages.forEach(message => {
-    if (message.user.id === id) {
-      messagesWithUserId.push(message);
-    }
-  });
+async function getUserMessages(id, models) {
+  // to do fix
+  return await models.Message.findById(id)
+}
 
-  return Object.values(messagesWithUserId);
-} 
-
-function createMessage(content, user) {
-  const id = uuidv4();
-  const newMessage = {
-    id,
+async function createMessage(content, models, user) {
+  return await models.Message.create({
     content,
-    user
-  };
-  fakeDb.addToMessages(newMessage);
-  return newMessage
+    userId: user.id
+  });
 }
 
-function deleteMessage(id) {
-  let index = -1;
-   messages.forEach((message, i) => {
-    if (message.id === id ) {
-       index = i;
-    }
-  });
-
-  if (index !== -1) {
-    fakeDb.deleteMessage(index);
-    return true;
-  } else {
-    return false;
-  }
+async function deleteMessage(id, models) {
+  return await models.Message.destroy({where: {id}});
 }
 
 export default {

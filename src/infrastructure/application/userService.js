@@ -1,23 +1,16 @@
-import fakeDb from '../fakeDb';
-const users = fakeDb.users; 
 
-function returnMe(user) {
-  return user;
+
+async function returnMe(models, user) {
+  return await models.User.findById(user.id);
 }
 
-function getUserBy(args) {
+async function getUserBy(id, models) {
   // TODO  see how to deal with cannot return null for non nullable 
-  let returnUser = {};
-  users.forEach(user => {
-    if (user.id === args.id) {
-      returnUser = user;
-    }
-  });
-  return returnUser
+  return await models.User.findById(id);
 }
 
-function getAllUsers() {
-  return Object.values(fakeDb.users);
+async function getAllUsers(models) {
+  return await models.User.findAll();
 }
 
 

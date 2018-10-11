@@ -5,9 +5,9 @@ import userService from '../../application/userService';
  */
 export default {
     Query: {
-        me: (parent, args, {user}) => userService.returnMe(user),
-        getUserById: (parent, {id}, context) => userService.getUserBy(id),
-        getAllUsers: (parent, args, context) => userService.getAllUsers(),
+        me: (parent, args, {models, user}) => userService.returnMe(models,user),
+        getUserById: (parent, {id}, {models}) => userService.getUserBy(id,models),
+        getAllUsers: (parent, args, {models}) => userService.getAllUsers(models),
     }
 };
 
