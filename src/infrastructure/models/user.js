@@ -1,15 +1,30 @@
-const user = (sequelize, DataTypes) => {
-    const User = sequelize.define('user', {
-        username: {
-            type: DataTypes.STRING,
-        },
-    });
+'use strict';
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('users', {
+    id: {
+      type: DataTypes.UUID,
+      primaryKey: true,
+      allowNull: false
+    },
+    username: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
 
-    User.associate = models => {
-        User.hasMany(models.Message, {onDelete: 'CASCADE'});
-    };
+    },
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
 
-    return User;
-}
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  }, {});
+  // User.associate = function(models) {
 
-export default user;
+  // };
+  return User;
+};

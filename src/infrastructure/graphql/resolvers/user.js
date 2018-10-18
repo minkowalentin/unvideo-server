@@ -1,4 +1,4 @@
-import userService from '../../application/userService';
+import userService from '../../../application/userService';
 
 /**
  * Export the graphQl user resolver

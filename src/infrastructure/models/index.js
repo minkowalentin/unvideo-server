@@ -11,7 +11,15 @@ const sequelize = new Sequelize(
 
 const models = {
   User: sequelize.import('./user'),
-  Message: sequelize.import('./message'),
+
+  // to be implemented
+  // City: sequelize.import('./city'),
+  // Comment: sequelize.import('./comment'),
+  // CommentRating: sequelize.import('./commentRating'),
+  // Country: sequelize.import('./country'),
+  // Map: sequelize.import('./map'),
+  // MapRating: sequelize.import('./mapRating'),
+  // UserFavourites: sequelize.import('./userFavourites'),
 };
 
 Object.keys(models).forEach(key => {
