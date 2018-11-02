@@ -8,7 +8,7 @@ import {
 import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import cors from 'cors';
-import models, { sequelize } from './infrastructure/models'
+import { sequelize } from './infrastructure/storage/index'
 
 const me =  {
   id: '2',
@@ -22,7 +22,6 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: {
-    models,
     user: me
   }
 });
@@ -42,3 +41,4 @@ sequelize.sync().then(async () => {
     console.log('Server running on port ' + process.env.localPort);
   })
 })
+

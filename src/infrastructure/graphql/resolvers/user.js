@@ -5,9 +5,15 @@ import userService from '../../../application/userService';
  */
 export default {
     Query: {
-        me: (parent, args, {models, user}) => userService.returnMe(models,user),
-        getUserById: (parent, {id}, {models}) => userService.getUserBy(id,models),
-        getAllUsers: (parent, args, {models}) => userService.getAllUsers(models),
+        me: (parent, args, { user }) => userService.returnMe(user),
+        getUserById: (parent, { id }, context) => userService.getUserById(id),
+        getAllUsers: (parent, args, context) => userService.getAllUsers(),
+    },
+
+    Mutation: {
+        createUser: (parent, args, context) => userService.createUser(args),
+        updateUser: (parent, args, context) => userService.updateUser(args),
+        removeUser: (parent, args, context) => userService.removeUser(args),
     }
 };
 
