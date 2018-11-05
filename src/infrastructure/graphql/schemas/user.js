@@ -2,7 +2,8 @@ export default `
 type Query {
   me: User!
   getUserById(id: ID!): User!
-  getAllUsers: [User!]
+  getAllUsers: [User!],
+  loginUser(email: String!, password: String!): User!
 }
 
 type Mutation {
@@ -13,6 +14,7 @@ type Mutation {
 
 type User {
   id: ID!
+  token: String
   username: String!
   email: String!
   password: String!

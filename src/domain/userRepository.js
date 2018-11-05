@@ -33,9 +33,21 @@ async function remove(args) {
     return true;
 }
 
+async function update(saveUser) {
+    var result = await userModel.update(saveUser.getStorageObj());
+
+    if (result !== true) {
+        return result;
+    }
+
+    return saveUser;
+}
+
+
 export default {
     add,
     remove,
     getBy,
-    getAll
+    getAll,
+    update
 }
