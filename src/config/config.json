@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "123123123",
-    "database": "backend_test_db",
+    "database": "simpleway_db",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "secret": "C\"+R9XM)xSON^CpLY_%0BYdh1#\"{}y427f?Q7/}&j(O??QOx&K]~aD`}>y2tk%e"
