@@ -9,7 +9,7 @@ Installs the listed node modules in package.json
 ### `npm start`
 
 Runs the app.<br>
-Open [http://localhost:3002/graphql](http://localhost:3002/graphql) (or http://localhost:**specified_port**/graphql if specified different port )to view and execute Graphql queries and mutations in the browser.
+Open [http://localhost:3002/graphql](http://localhost:3002/graphql) (or http://localhost: **specified_port** /graphql if different port is specified) to view and execute Graphql queries and mutations in the browser.
 
 The page will reload if you make edits.<br>
 
