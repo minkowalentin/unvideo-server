@@ -22,3 +22,6 @@ db_username= **your db_username**<br>
 db_password= **your db_password**<br>
 database= **your db name**<br>
 db_dialect: **postgres**<br>
+
+### Connect Client
+Conenct React template client to server: https://github.com/minkowalentin/react-register-login
