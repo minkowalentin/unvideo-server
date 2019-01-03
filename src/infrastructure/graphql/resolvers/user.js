@@ -9,7 +9,6 @@ export default {
         getUserById: (parent, { id }, context) => userService.getUserById(id),
         getAllUsers: (parent, args, context) => userService.getAllUsers(),
         loginUser: (parent, args, context) => userService.login(args)
-
     },
 
     Mutation: {
