@@ -1,6 +1,4 @@
-# pg-express-graphql-server
-
-## Postgress, Graphql, Express template server for registering/creating users 
+# Unvideo-server
 
 ### `npm install`
 
@@ -23,5 +21,5 @@ db_password= **your db_password**<br>
 database= **your db name**<br>
 db_dialect: **postgres**<br>
 
-### Connect Client
-Conenct React template client to server: https://github.com/minkowalentin/react-register-login
+### Client
+https://github.com/minkowalentin/unvideo-client
